@@ -1,0 +1,32 @@
+{
+  "customComponentItems": {
+    "pagination": {
+      "name": "Sign",
+      "imagePath": "preview/downloader.png",
+      "description": "分页列表-zion",
+      "itemInputs": [
+        {
+          "fieldName": "url",
+          "type": "TEXT"
+        },
+        {
+          "fieldName": "actionflow_id",
+          "type": "TEXT"
+        },
+        {
+          "fieldName": "table_name",
+          "type": "TEXT"
+        },
+        {
+          "fieldName": "table_fields",
+          "type": "TEXT"
+        },
+        {
+          "fieldName": "company_id",
+          "type": "INTEGER"
+        }
+      ]
+    }
+  },
+  "version": "0.0.1"
+}
