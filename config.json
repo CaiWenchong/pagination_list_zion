@@ -1,7 +1,7 @@
 {
   "customComponentItems": {
     "pagination": {
-      "name": "Sign",
+      "name": "pagination",
       "imagePath": "preview/downloader.png",
       "description": "分页列表-zion",
       "itemInputs": [
@@ -28,5 +28,5 @@
       ]
     }
   },
-  "version": "0.0.1"
+  "version": "0.0.2"
 }

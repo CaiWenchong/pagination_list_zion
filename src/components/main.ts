@@ -1,3 +1,3 @@
-import Sign from './Sign.vue';
+import pagination from './pagination.vue';
 
-export default { Sign };
+export default { pagination };
