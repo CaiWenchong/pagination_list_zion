@@ -155,7 +155,7 @@ export default {
     },
     //页码改变时
     changePage() {
-      this.$props.globalData.currentPage=this.currentPage
+      this.$props.globalData.current_page=this.currentPage
       console.log("props:", this.$props);
     },
   },
