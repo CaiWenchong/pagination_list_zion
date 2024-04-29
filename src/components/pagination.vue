@@ -1,6 +1,5 @@
-
 <template>
-  <div class="page-wrap" v-if="total>0">
+  <div class="page-wrap" v-if="total > 0">
     <ul>
       <li
         class="li-page"
@@ -47,9 +46,22 @@ import { messageControl } from "/src/components/message.js";
 
 export default {
   name: "pagination",
-  props: ["globalData", "url", "actionflow_id", "table_name", "where", "limit"],
+  props: [
+    "globalData",
+    "url",
+    "actionflow_id",
+    "table_name",
+    "where",
+    "limit",
+    "pageId",
+    "redirectUrl",
+    "pageFiled",
+  ],
   mounted() {
-    console.log("props:", this.$props);
+    
+    const searchParams = new URLSearchParams(window.location.search);
+    this.changeOffset(parseInt(searchParams.get("page")))
+
 
     this.message = new messageControl();
 
@@ -122,12 +134,14 @@ export default {
       console.log("rs", params);
 
       mdapi.query(params).then((res) => {
-        this.total=res.aggregate.count
+        this.total = res.aggregate.count;
       });
-
-
     },
-
+    changeOffset(i) {
+      if (i === 0 || i === this.currentPage) return;
+      this.offset = (i - 1) * this.limit;
+   
+    },
     pageOffset(i) {
       if (i === 0 || i === this.currentPage) return;
       this.offset = (i - 1) * this.limit;
@@ -149,12 +163,17 @@ export default {
     },
     //页码改变时
     changePage() {
-      this.$props.globalData.current_page=this.currentPage
+      // this.$props.globalData.current_page=this.currentPage
+      // this.currentPage=this.pageId
+
+      window.open(
+        this.redirectUrl + this.pageFiled + "=" + this.currentPage,
+        "_self"
+      );
+
       console.log("props:", this.$props);
     },
-
-   
-
+ 
   },
 };
 </script>

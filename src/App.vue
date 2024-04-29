@@ -9,12 +9,25 @@ const setGlobalData = (obj: any) => {
 };
 
 
-const url = ref("");
-const actionflow_id = ref("5e5e155d-7b3c-4771-bf94-ceb597cbb666");
-const where = ref("");
-const limit = ref(-1);
-const table_name = ref("");
+// const url = ref("");
+// const actionflow_id = ref("5e5e155d-7b3c-4771-bf94-ceb597cbb666");
+// const where = ref("");
+// const limit = ref(-1);
+// const table_name = ref("");
 
+const url = ref("https://zion-app.functorz.com/zero/1qjzLgQq1g0/api/graphql-v2");
+
+
+const actionflow_id = ref("5e5e155d-7b3c-4771-bf94-ceb597cbb666");
+const where = ref("company_company: {_eq: '1'}");
+const limit = ref(2);
+const table_name = ref("commodity");
+
+
+// const redirectUrl="https://p7w6le0oxvgv1.cave.functorz.com/lvkw9ict?"
+const redirectUrl="https://p7w6le0oxvgv1.cave.functorz.com/lvkw9ict?"
+const pageFiled="page"
+const pageId="2"
 
 
 
@@ -25,6 +38,9 @@ const table_name = ref("");
     :limit="limit"
     :table_name="table_name"
     :url="url"
+    :pageFiled="pageFiled"
+    :pageId="pageId"
+    :redirectUrl="redirectUrl"
     :actionflow_id="actionflow_id"
     :global-data="globalData"
     :set-global-data="setGlobalData"
