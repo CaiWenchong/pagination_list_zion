@@ -40,17 +40,17 @@ function get_gql_debug_gql(jsCode = "", args = {}) {
 function get_mutation_gql(data = {}, mode = 1, response_key = "response") {
 	let {
 		operation = "",
-		field_string = ``,
-		where = {},
-		_set,
-		_inc,
-		objects = [], //[]或{}
-		object = {},
-		args,
-		on_conflict,
-		pk_columns,
-		params,
-		id,
+			field_string = ``,
+			where = {},
+			_set,
+			_inc,
+			objects = [], //[]或{}
+			object = {},
+			args,
+			on_conflict,
+			pk_columns,
+			params,
+			id,
 	} = data
 	let response_body = ``;
 	let gql = ``;
@@ -83,7 +83,7 @@ function get_mutation_gql(data = {}, mode = 1, response_key = "response") {
 	}
 	if (op_type == "action") {
 		let actionflow_id = operation.slice(7);
-		let args_string = `${gql_string(args || {})}`;
+		let args_string = `${gql_string(args||{})}`;
 		response_body = `${response_key}: fz_invoke_action_code(
       testPassword: "doushizhutou3"
       args: { actionflow_id: "${actionflow_id}", actionflow_data: ${args_string} }
@@ -232,9 +232,9 @@ function get_mutation_gql(data = {}, mode = 1, response_key = "response") {
 function get_query_gql(data = {}, mode = 1, response_key = "response") {
 	const {
 		model = "account", field_string = ``, where = {}, order_by, distinct_on, offset, limit,
-		id,
-		fz_body, params,
-		args
+			id,
+			fz_body, params,
+			args
 	} = data
 	let response_body = ``;
 	let gql = ``;
@@ -285,7 +285,7 @@ function get_query_gql(data = {}, mode = 1, response_key = "response") {
 		if (typeof fz_body == "object" && fz_body) {
 			fz_body_string = `fz_body:${gql_string(fz_body)}`;
 		} else {
-			fz_body_string = `fz_body:"${gql_string(fz_body, 4)}"`;
+			fz_body_string = `fz_body:"${gql_string(fz_body,4)}"`;
 		}
 	}
 	let params_string = ""
@@ -428,7 +428,7 @@ async function get_local_uimage_gql(file) {
 
 		function hexToArrayBuffer(hexString) {
 			// 将16进制字符串转成字节数组
-			const byteArray = new Uint8Array(hexString.match(/[\da-f]{2}/gi).map(function (h) {
+			const byteArray = new Uint8Array(hexString.match(/[\da-f]{2}/gi).map(function(h) {
 				return parseInt(h, 16)
 			}))
 			// 将字节数组转成ArrayBuffer
@@ -472,7 +472,7 @@ async function get_local_uvideo_gql(file) {
 
 		function hexToArrayBuffer(hexString) {
 			// 将16进制字符串转成字节数组
-			const byteArray = new Uint8Array(hexString.match(/[\da-f]{2}/gi).map(function (h) {
+			const byteArray = new Uint8Array(hexString.match(/[\da-f]{2}/gi).map(function(h) {
 				return parseInt(h, 16)
 			}))
 			// 将字节数组转成ArrayBuffer
@@ -515,7 +515,7 @@ async function get_local_ufile_gql(file) {
 
 		function hexToArrayBuffer(hexString) {
 			// 将16进制字符串转成字节数组
-			const byteArray = new Uint8Array(hexString.match(/[\da-f]{2}/gi).map(function (h) {
+			const byteArray = new Uint8Array(hexString.match(/[\da-f]{2}/gi).map(function(h) {
 				return parseInt(h, 16)
 			}))
 			// 将字节数组转成ArrayBuffer
@@ -562,7 +562,7 @@ function gql_string(obj, mode = 1) {
 	} else if (mode === 3) {
 		return JSON.stringify(obj).replace(/"(\w+?)":/g, "$1:").replace(
 			/([,\{])update_columns:"([\w,\[\]]+)"([,\}])/g, "$1update_columns:$2$3").replace(
-				/([,\{])constraint:"([\w,\[\]]+)"([,\}])/g, "$1constraint:$2$3")
+			/([,\{])constraint:"([\w,\[\]]+)"([,\}])/g, "$1constraint:$2$3")
 	} else if (mode === 4) {
 		return obj.replace(/\\/g, "\\\\").replace(/\r\n/g, "\\n").replace(/\"/g, "\\\"").replace(/\n/g, "\\n");
 	}
@@ -675,9 +675,6 @@ async function ali_umedia(file, attach) {
 
 
 export default {
-
-	init,
-
 	// request is the native request method
 	request: async (options, url = "", header_authorization = "") => {
 		let variables = options?.variables || {};
@@ -932,5 +929,6 @@ export default {
 				return response
 			}
 		})
-	}
+	},
+	init
 }
