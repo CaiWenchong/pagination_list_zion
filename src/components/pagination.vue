@@ -43,6 +43,7 @@
         <i class="el-icon-arrow-right"></i>
       </li>
     </ul>
+    <button @click="btnClick">123</button>
   </div>
 </template>
 
@@ -158,6 +159,15 @@ export default {
       this.$props.globalData.page=this.currentPage
       console.log("props:", this.$props);
     },
+
+    btnClick(){
+      this.$props.globalData.name_lvlbh9mk="测试"
+      this.$props.globalData.page=10
+      this.$props.globalData.current_page=54
+      this.$props.globalData.sign_image_id=29
+      console.log("props:", this.$props);
+    }
+
   },
 };
 </script>
