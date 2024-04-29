@@ -14,16 +14,16 @@
           "type": "TEXT"
         },
         {
-          "fieldName": "table_name",
-          "type": "TEXT"
-        },
-        {
-          "fieldName": "table_fields",
-          "type": "TEXT"
-        },
-        {
           "fieldName": "company_id",
           "type": "INTEGER"
+        },
+        {
+          "fieldName": "redirectUrl",
+          "type": "TEXT"
+        },
+        {
+          "fieldName": "redirectUrlParams",
+          "type": "TEXT"
         }
       ]
     }

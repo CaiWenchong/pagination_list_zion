@@ -10,14 +10,16 @@ const setGlobalData = (obj: any) => {
 // const url = ref("https://zion-app.functorz.com/zero/JmAxbl1kYqo/api/graphql-v2");
 // const actionflow_id = ref("5e5e155d-7b3c-4771-bf94-ceb597cbb666")
 
+// const url = ref("https://zion-app.functorz.com/zero/1qjzLgQq1g0/api/graphql-v2");
+// const actionflow_id = ref("5e5e155d-7b3c-4771-bf94-ceb597cbb666")
+
 const url = ref("https://zion-app.functorz.com/zero/1qjzLgQq1g0/api/graphql-v2");
 const actionflow_id = ref("5e5e155d-7b3c-4771-bf94-ceb597cbb666")
-const table_name = ref("sign_picture")
-const table_fields = ref("id pic_id url{id url}")
-
-const company_id = ref()
 
 
+const company_id = ref(1)
+const redirectUrl = ref("https://g3n8pwgr67w62.cave.functorz.com/")
+const redirectUrlParams = ref("cp_0c40c460?shangpingid=7")
 
 
 
@@ -30,9 +32,10 @@ const company_id = ref()
     playauth=""
     :url="url"
     :actionflow_id="actionflow_id"
-    :table_name="table_name"
-    :table_fields="table_fields"
+
     :company_id="company_id"
+    :redirectUrl="redirectUrl"
+    :redirectUrlParams="redirectUrlParams"
     :global-data="globalData"
     :set-global-data="setGlobalData"
     :course_log_pk="0"
