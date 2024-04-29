@@ -58,10 +58,8 @@ export default {
     "pageFiled",
   ],
   mounted() {
-    
     const searchParams = new URLSearchParams(window.location.search);
-    this.changeOffset(parseInt(searchParams.get("page")))
-
+    this.changeOffset(parseInt(searchParams.get("page")));
 
     this.message = new messageControl();
 
@@ -130,9 +128,6 @@ export default {
         field_string: "aggregate {count}",
         where,
       };
-
-      console.log("rs", params);
-
       mdapi.query(params).then((res) => {
         this.total = res.aggregate.count;
       });
@@ -140,7 +135,6 @@ export default {
     changeOffset(i) {
       if (i === 0 || i === this.currentPage) return;
       this.offset = (i - 1) * this.limit;
-   
     },
     pageOffset(i) {
       if (i === 0 || i === this.currentPage) return;
@@ -163,17 +157,18 @@ export default {
     },
     //页码改变时
     changePage() {
-      // this.$props.globalData.current_page=this.currentPage
-      // this.currentPage=this.pageId
-
       window.open(
-        this.redirectUrl + this.pageFiled + "=" + this.currentPage,
+        this.redirectUrl +
+          this.pageId +
+          "?" +
+          this.pageFiled +
+          "=" +
+          this.currentPage,
         "_self"
       );
 
       console.log("props:", this.$props);
     },
- 
   },
 };
 </script>

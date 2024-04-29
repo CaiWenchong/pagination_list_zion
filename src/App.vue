@@ -24,10 +24,9 @@ const limit = ref(2);
 const table_name = ref("commodity");
 
 
-// const redirectUrl="https://p7w6le0oxvgv1.cave.functorz.com/lvkw9ict?"
-const redirectUrl="https://p7w6le0oxvgv1.cave.functorz.com/lvkw9ict?"
+const redirectUrl="https://p7w6le0oxvgv1.cave.functorz.com/"
 const pageFiled="page"
-const pageId="2"
+const pageId="lvkw9ict"
 
 
 
