@@ -56,7 +56,7 @@ export default {
   props: ["globalData", "url", "actionflow_id", "table_name", "where", "limit"],
   mounted() {
     console.log("props:", this.$props);
-    
+
     this.message = new messageControl();
 
     // 初始化配置
@@ -129,11 +129,9 @@ export default {
 
       mdapi.query(params).then((res) => {
         this.total=res.aggregate.count
-        console.log("queryTableDataCount:", res);
-        // this.total = res.data.count;
       });
 
-      console.log("queryTableDataCount:", table_name, where);
+
     },
 
     pageOffset(i) {
@@ -158,7 +156,6 @@ export default {
     //页码改变时
     changePage() {
       this.$props.globalData.currentPage=this.currentPage
-      console.log(this.currentPage);
       console.log("props:", this.$props);
     },
   },
