@@ -1,10 +1,4 @@
-<!--
- * @Email: rumosky@163.com
- * @Author: rumosky
- * @Github: https://github.com/rumosky
- * @Date: 2019-07-19 09:32:08
- * @Description: 封装分页组件
- -->
+
 <template>
   <div class="page-wrap" v-if="total>0">
     <ul>
@@ -43,7 +37,6 @@
         <i class="el-icon-arrow-right"></i>
       </li>
     </ul>
-    <button @click="btnClick">123</button>
   </div>
 </template>
 
@@ -156,17 +149,11 @@ export default {
     },
     //页码改变时
     changePage() {
-      this.$props.globalData.page=this.currentPage
+      this.$props.globalData.current_page=this.currentPage
       console.log("props:", this.$props);
     },
 
-    btnClick(){
-      this.$props.globalData.name_lvlbh9mk="测试"
-      this.$props.globalData.page=10
-      this.$props.globalData.current_page=54
-      this.$props.globalData.sign_image_id=29
-      console.log("props:", this.$props);
-    }
+   
 
   },
 };
