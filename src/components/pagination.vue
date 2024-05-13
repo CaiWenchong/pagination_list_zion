@@ -59,7 +59,13 @@ export default {
   ],
   mounted() {
     const searchParams = new URLSearchParams(window.location.search);
-    this.changeOffset(parseInt(searchParams.get("page")));
+    //判断路径参数是否存在page字段
+    if (!searchParams.has(this.pageFiled)) {
+      searchParams.set(this.pageFiled, 1);
+    }
+
+    //判断路径参数是否存在page字段
+    this.changeOffset(parseInt(searchParams.get(this.pageFiled)));
 
     this.message = new messageControl();
 
@@ -157,13 +163,10 @@ export default {
     },
     //页码改变时
     changePage() {
+      const searchParams = new URLSearchParams(window.location.search);
+      searchParams.set(this.pageFiled, this.currentPage);
       window.open(
-        this.redirectUrl +
-          this.pageId +
-          "?" +
-          this.pageFiled +
-          "=" +
-          this.currentPage,
+        this.redirectUrl + this.pageId + "?" + searchParams.toString(),
         "_self"
       );
 
